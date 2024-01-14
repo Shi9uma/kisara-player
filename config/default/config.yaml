@@ -1,0 +1,7 @@
+
+# peer-server 监听信息
+host: 127.0.0.1
+port: 7897
+
+# 随机数生成种子
+seed: 'test'

@@ -4,3 +4,6 @@
 # dir
 dontgit
 node_modules
+
+# files
+config/config.yaml

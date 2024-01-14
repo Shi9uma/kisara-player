@@ -1,0 +1,37 @@
+{
+  "name": "kisara-chatroom",
+  "version": "0.0.1",
+  "description": "A script base on tampermonkey, which can be use to sync video playback progress and create a chatroom on your web.",
+  "main": "./src/client.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shi9uma/kisara-chatroom.git"
+  },
+  "keywords": [
+    "WebRTC",
+    "PeerJS",
+    "chatroom"
+  ],
+  "author": "shiguma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shi9uma/kisara-chatroom/issues"
+  },
+  "homepage": "https://github.com/shi9uma/kisara-chatroom#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "https": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "moment": "^2.30.1",
+    "peer": "^1.0.2",
+    "url": "^0.11.3",
+    "winston": "^3.11.0"
+  }
+}
