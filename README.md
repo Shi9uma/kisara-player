@@ -1,47 +1,9 @@
 # kisara-chatroom
 
->   基于 tampermonkey 实现 webrtc 同步视频播放 + 在线聊天室
+>   一直想要找到一个能够实现：创建房间、手动添加视频源、同步播放视频、在线聊天室、聊天内容以弹幕形式发送的项目，目前已经有十分成熟的 [synctv-org/synctv](https://github.com/synctv-org/synctv.git)，本项目将主要以参考 synctv 的工程逻辑为目标，使用 JavaScript 复刻一个以 tampermonkey 插件形式实现的，能够同步视频播放 + 在线聊天室的项目
 
-## install
-
-
-
-## livego
-
-### install
-
-使用 livego_docker 来直播推流，[项目 repo](https://github.com/gwuhaolin/livego)，以下是 docker-compose 示例
-
-```yaml
-version: "3"
-services:
-  livego:
-    image: gwuhaolin/livego:latest
-    container_name: livego
-    ports:
-      - 7001:7001
-      - 7002:7002
-      - 1935:1935
-      - 8090:8090
-    restart: always
-```
-
-在 docker-compose 中可以自定义端口映射，其中主要是
-
--   7001，用于 flv 拉流，也是最常用的直播流播放目标
--   1935，直播推流
--   8090，获取鉴权 key
-
-### usage
-
-1.   打开 livego 服务：客制化配置完 docker-compose.yml 后执行 `sudo docker-compose -f docker-compose.yml up -d`，这里注意要保证相应的端口能访问得通
-
-2.   获取推流 key：访问 `http://localhost:8090/control/get/room={diy}`，这里的 **{diy}** 改成任意想要的名字，网页返回一长串 `channelkey`
-
-3.   通过 rtmp 推流：这里有一个最简单的方法就是使用 obs-studio，在 **设置 - 推流** 中填写相应内容，主要是参考上文对应端口的作用
-
-     -   **服务** 选择 **自定义...**
-     -   **服务器** 输入 `rtmp://localhost:1935/live/`，这里的 
-     -   **串流密钥** 就是刚才的 channelkey
-
-     填写完就能正常直播推流，访问 `rtmp://localhost:1935/{diy}` 来查看是否有推流的内容
+-   peer-server，peer-client；
+-   一个配套 frontend，网页内自带 webrtc 视频同步 + 聊天室，视频链接可以是手动装载，统一装载，外链统一
+-   可以加上弹幕系统，在线上看番的时候可以装载，优先级是：本地已有、线上爬取、弹幕盒子
+    -   弹幕 parser 获取：自动识别番名，从巴哈、哔哩哔哩等获取弹幕；
+-   集成到 tampermonkey，可以在目标页面以悬浮窗的形式创建聊天室
