@@ -1,9 +1,17 @@
 # kisara-chatroom
 
->   一直想要找到一个能够实现：创建房间、手动添加视频源、同步播放视频、在线聊天室、聊天内容以弹幕形式发送的项目，目前已经有十分成熟的 [synctv-org/synctv](https://github.com/synctv-org/synctv.git)，本项目将主要以参考 synctv 的工程逻辑为目标，使用 JavaScript 复刻一个以 tampermonkey 插件形式实现的，能够同步视频播放 + 在线聊天室的项目
+## sth
 
--   peer-server，peer-client；
--   一个配套 frontend，网页内自带 webrtc 视频同步 + 聊天室，视频链接可以是手动装载，统一装载，外链统一
--   可以加上弹幕系统，在线上看番的时候可以装载，优先级是：本地已有、线上爬取、弹幕盒子
-    -   弹幕 parser 获取：自动识别番名，从巴哈、哔哩哔哩等获取弹幕；
--   集成到 tampermonkey，可以在目标页面以悬浮窗的形式创建聊天室
+I always wanted to find a solution to create a room, which can be used to manually add video sources, synchronize video playback, have an online chatroom, and send chat content in the form of danmaku.
+
+Currently, there is a mature project [synctv-org/synctv](https://github.com/synctv-org/synctv.git). 
+
+Now this project aims to reference the engineering logic of synctv, using JavaScript to replicate a tampermonkey plugin that achieves synchronized video playback and an online chatroom.
+
+## plan
+
+-   peer-server, peer-client;
+-   A corresponding frontend, a web page with built-in webrtc video synchronization + chatroom. Video links can be manually loaded, loaded uniformly, or linked externally.
+-   A danmaku system can be added, which can be loaded while watching online, with priorities being: locally available, crawled online, danmaku box.
+    -   Danmaku parser acquisition: Automatically recognize the anime title, obtain danmaku from sources such as Bahamut, Bilibili, etc.;
+-   Integrated with tampermonkey, it can create a chatroom on the target page in the form of a floating window.
